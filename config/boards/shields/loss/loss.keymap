@@ -72,26 +72,26 @@
     };
 
 
-    sym_layer {
+     sym_layer {
 //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
 //  ┆   ~  ┆  !   ┆  @   ┆  #   ┆  $   ┆  %   ┆                              ┆  ^   ┆  &   ┆  *   ┆  (   ┆  )   ┆  ┆   ┆
-//  ┆   `  ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆  \   ┆
+//  ┆   `  ┆  1   ┆  2   ┆  3   ┆  4   ┆  5   ┆                              ┆  6   ┆  7   ┆  8   ┆  9   ┆  0   ┆  \   ┆
 //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
-//  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║  _   ║  +   ║      ┆
-//  ┆      ║  1   ║  2   ║  3   ║  4   ║  5   ┆                              ┆  '   ║  [   ║  ]   ║  -   ║  =   ║      ┆
+//  ┆      ║      ║      ║      ║      ║      ┆                              ┆  "   ║  {   ║  }   ║  _   ║  +   ║      ┆
+//  ┆      ║  6   ║  7   ║  8   ║  9   ║  0   ┆                              ┆  '   ║  [   ║  ]   ║  -   ║  =   ║      ┆
 //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
 //  ┆      ┆      ┆      ┆      ┆      ┆      ┆SCROLL┆ LALT ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ┆      ┆  6   ┆  7   ┆  8   ┆  9   ┆  0   ┆  LOCK┆      ┆  ┆      ┆      ┆  "   ┆  {   ┆  }   ┆  _   ┆  +   ┆      ┆
+//  ┆      ┆      ┆      ┆      ┆      ┆      ┆  LOCK┆      ┆  ┆      ┆      ┆  "   ┆  {   ┆  }   ┆  _   ┆  +   ┆      ┆
 //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
 //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 
       bindings = <
-    &kp GRAV  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                                       &kp CARET  &kp AMPS  &kp STAR  &kp LPAR        &kp RPAR   &kp BSLH
-    &trans    &kp N1   &kp N2 &kp N3   &kp N4   &kp N5                                          &kp SQT    &kp LBKT  &kp RBKT  &kp MINUS       &kp EQUAL  &none
-    &trans    &kp N6   &kp N7 &kp N8   &kp N9   &kp N0     &kp SLCK &kp LALT         &none  &none  &kp DQT    &kp LBRC  &kp RBRC  &kp UNDERSCORE  &kp PLUS   &trans
-                              &trans   &trans   &trans     &trans   &trans        &trans &trans &trans     &trans    &trans
+    &kp GRAV  &kp N1 &kp N2 &kp N3 &kp N4    &kp N5                                         &kp N6  &kp N7     &kp N8   &kp N9         &kp N0    &kp BSLH
+    &trans    &kp N6 &kp N7 &kp N8 &kp N9    &kp N0                                         &kp SQT &kp LBKT   &kp RBKT &kp MINUS      &kp EQUAL &none
+    &trans    &none  &none  &none  &none     &none  &kp SLCK &kp LALT         &none  &none  &kp DQT &kp LPAR   &kp RPAR &kp UNDERSCORE &kp PLUS  &trans
+                            &trans &trans    &trans &trans   &trans           &trans &trans &trans  &trans     &trans
       >;
     };
 
@@ -121,8 +121,8 @@
 
     fkey_layer {
 //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
-//  ┆      ┆  F9  ┆ F10  ┆  F11 ┆ F12  ┆PRINT ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆SCREEN┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
+//  ┆      ┆  F9  ┆ F10  ┆  F11 ┆ F12  ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
+//  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
 //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
 //  ┆      ║  F5  ║  F6  ║  F7  ║  F8  ║      ┆                              ┆      ║SHIFT ║ CTRL ║ ALT  ║ GUI  ║      ┆
 //  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
