@@ -33,19 +33,19 @@
 //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
 //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
 //  ┆ CTRL ║  A   ║  S   ║  D   ║  F   ║  G   ┆                              ┆  H   ║  J   ║  K   ║  L   ║  ;   ║ CTRL ┆
-//  ┆ ESC  ║      ║      ║      ║ SHIFT║      ┆                              ┆      ║SHIFT ║      ║      ║  :   ║ RET  ┆
+//  ┆ ESC  ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║  :   ║ RET  ┆
 //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆ SHIFT┆  Z   ┆  X   ┆  C   ┆  V   ┆  B   ┆CAPS  ┆ADJUST┆  ┆PRINT ┆INSERT┆  N   ┆  M   ┆  <   ┆  >   ┆  ?   ┆SHIFT ┆
+//  ┆ SHIFT┆  Z   ┆  X   ┆  C   ┆  V   ┆  B   ┆CAPS  ┆ADJUST┆  ┆PRINT ┆INSERT┆  N   ┆  M   ┆  <   ┆  >   ┆  ?   ┆      ┆
 //  ┆      ┆      ┆      ┆      ┆      ┆      ┆  LOCK┆      ┆  ┆SCREEN┆      ┆      ┆      ┆  ,   ┆  .   ┆  /   ┆      ┆
 //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-//                       ┆ FKEYS┆  GUI ┆ LALT ┆ CTRL ┆  SYM ┆  ┆ DEL  ┆ NAVI ┆ RALT ┆ GUI  ┆PAUSE ┆
+//                       ┆ FKEYS┆  GUI ┆ LALT ┆ CTRL ┆  SYM ┆  ┆ DEL  ┆ NAVI ┆SHIFT ┆ RALT ┆      ┆
 //                       ┆      ┆      ┆ TAB  ┆ SPACE┆ RET  ┆  ┆      ┆ BSPC ┆      ┆      ┆      ┆
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
       bindings = <
-    &kp TAB        &kp Q      &kp W       &kp E        &kp R         &kp T                                                                &kp Y    &kp U          &kp I           &kp O      &kp P         &kp BSPC
-    &mt LCTRL ESC  &kp A      &kp S       &kp D        &bhm LSHIFT F &kp G                                                                &kp H    &bhm RSHIFT J  &kp K           &kp L      &kp SEMI      &mt RCTRL RET
-    &kp LSHFT      &kp Z      &kp X       &kp C        &kp V         &kp B        &kp CLCK        &mo ADJUST      &kp PSCRN &kp INSERT    &kp N    &kp M          &kp COMMA       &kp DOT    &kp FSLH      &kp RSHIFT
-                                          &mo FKEYS    &kp LGUI      &mt LALT TAB &bhm LCTRL SPACE &lt SYM RET     &kp DEL   &lt NAVI BSPC &kp RALT &kp RGUI       &kp PAUSE_BREAK
+    &kp TAB        &kp Q      &kp W       &kp E        &kp R         &kp T                                                                  &kp Y      &kp U        &kp I           &kp O      &kp P         &kp BSPC
+    &mt LCTRL ESC  &kp A      &kp S       &kp D        &kp F         &kp G                                                                  &kp H      &kp J        &kp K           &kp L      &kp SEMI      &mt RCTRL RET
+    &kp LSHFT      &kp Z      &kp X       &kp C        &kp V         &kp B        &kp CLCK         &mo ADJUST       &kp PSCRN &kp INSERT    &kp N      &kp M        &kp COMMA       &kp DOT    &kp FSLH      &none
+                                          &sl FKEYS    &kp LGUI      &mt LALT TAB &bhm LCTRL SPACE &lt SYM RET      &kp DEL   &lt NAVI BSPC &kp RSHIFT &kp RALT     &none
       >;
     };
 
@@ -64,10 +64,10 @@
 //                       ┆      ┆      ┆      ┆ SPACE┆ RET  ┆  ┆      ┆ BSPC ┆      ┆      ┆      ┆
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
       bindings = <
-    &kp TAB        &kp Q  &kp W  &kp E      &kp R    &kp T                                                             &kp Y    &kp U    &kp I      &kp O   &kp P    &kp BSPC
-    &mt LCTRL ESC  &kp A  &kp S  &kp D      &kp F    &kp G                                                             &kp H    &kp J    &kp K      &kp L   &kp SEMI &mt RCTRL RET
-    &kp LSHFT      &kp Z  &kp X  &kp C      &kp V    &kp B     &kp CLCK  &mo ADJUST   &kp PSCRN &kp INSERT    &kp N    &kp M    &kp COMMA  &kp DOT &kp FSLH &kp RSHIFT
-                                 &mo FKEYS  &kp LGUI &kp LALT  &kp SPACE &kp RET      &kp DEL   &lt NAVI BSPC &kp RALT &kp RGUI &kp PAUSE_BREAK
+    &kp TAB        &kp Q  &kp W  &kp E      &kp R    &kp T                                                                &kp Y    &kp U    &kp I      &kp O   &kp P    &kp BSPC
+    &mt LCTRL ESC  &kp A  &kp S  &kp D      &kp F    &kp G                                                                &kp H    &kp J    &kp K      &kp L   &kp SEMI &mt RCTRL RET
+    &kp LSHFT      &kp Z  &kp X  &kp C      &kp V    &kp B     &kp CLCK  &mo ADJUST   &kp PSCRN    &kp INSERT    &kp N    &kp M    &kp COMMA  &kp DOT &kp FSLH &kp RSHIFT
+                                 &sl FKEYS  &kp LGUI &kp LALT  &kp SPACE &kp RET      &kp DEL      &lt NAVI BSPC &kp RALT &kp RGUI &kp PAUSE_BREAK
       >;
     };
 
@@ -75,23 +75,23 @@
     sym_layer {
 //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
 //  ┆   ~  ┆  !   ┆  @   ┆  #   ┆  $   ┆  %   ┆                              ┆  ^   ┆  &   ┆  *   ┆  (   ┆  )   ┆  ┆   ┆
-//  ┆   `  ┆  1   ┆  2   ┆  3   ┆  4   ┆  5   ┆                              ┆  6   ┆  7   ┆  8   ┆  9   ┆  0   ┆  \   ┆
+//  ┆   `  ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆  \   ┆
 //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
-//  ┆      ║      ║      ║      ║      ║      ┆                              ┆  "   ║  {   ║  }   ║  _   ║  +   ║      ┆
-//  ┆      ║  6   ║  7   ║  8   ║  9   ║  0   ┆                              ┆  '   ║  [   ║  ]   ║  -   ║  =   ║      ┆
+//  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║  _   ║  +   ║      ┆
+//  ┆      ║  1   ║  2   ║  3   ║  4   ║  5   ┆                              ┆  '   ║  [   ║  ]   ║  -   ║  =   ║      ┆
 //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
 //  ┆      ┆      ┆      ┆      ┆      ┆      ┆SCROLL┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆  LOCK┆      ┆  ┆      ┆      ┆  "   ┆  (   ┆  )   ┆  _   ┆  +   ┆      ┆
+//  ┆      ┆  6   ┆  7   ┆  8   ┆  9   ┆  0   ┆  LOCK┆      ┆  ┆      ┆      ┆  "   ┆  {   ┆  }   ┆  _   ┆  +   ┆      ┆
 //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
 //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 
       bindings = <
-    &kp GRAV  &kp N1 &kp N2 &kp N3 &kp N4         &kp N5                                      &kp N6  &kp N7           &kp N8   &kp N9         &kp N0    &kp BSLH
-    &trans    &kp N6 &kp N7 &kp N8 &bhm LSHIFT N9 &kp N0                                      &kp SQT &bhm RSHIFT LBKT &kp RBKT &kp MINUS      &kp EQUAL &none
-    &trans    &none  &none  &none  &none          &none  &kp SLCK &none         &none  &none  &kp DQT &kp LPAR         &kp RPAR &kp UNDERSCORE &kp PLUS  &trans
-                            &trans &trans         &trans &trans   &trans        &trans &trans &trans  &trans           &trans
+    &kp GRAV  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                                       &kp CARET  &kp AMPS  &kp STAR  &kp LPAR        &kp RPAR   &kp BSLH
+    &trans    &kp N1   &kp N2 &kp N3   &kp N4   &kp N5                                          &kp SQT    &kp LBKT  &kp RBKT  &kp MINUS       &kp EQUAL  &none
+    &trans    &kp N6   &kp N7 &kp N8   &kp N9   &kp N0     &kp SLCK &none         &none  &none  &kp DQT    &kp LBRC  &kp RBRC  &kp UNDERSCORE  &kp PLUS   &trans
+                              &trans   &trans   &trans     &trans   &trans        &trans &trans &trans     &trans    &trans
       >;
     };
 
