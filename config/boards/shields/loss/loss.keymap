@@ -29,22 +29,22 @@
 
     default_layer {
 //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
-//  ┆ TAB  ┆  Q   ┆  W   ┆  E   ┆  R   ┆  T   ┆                              ┆  Y   ┆  U   ┆  I   ┆  O   ┆  P   ┆ BSPC ┆
+//  ┆ TAB  ┆  Q   ┆  W   ┆  E   ┆  R   ┆  T   ┆                              ┆  Y   ┆  U   ┆  I   ┆  O   ┆  P   ┆      ┆
 //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
 //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
-//  ┆ CTRL ║  A   ║  S   ║  D   ║  F   ║  G   ┆                              ┆  H   ║  J   ║  K   ║  L   ║  ;   ║ CTRL ┆
-//  ┆ ESC  ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║  :   ║ RET  ┆
+//  ┆ CTRL ║  A   ║  S   ║  D   ║  F   ║  G   ┆                              ┆  H   ║  J   ║  K   ║  L   ║  ;   ║ DEL  ┆
+//  ┆ ESC  ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║  :   ║      ┆
 //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆ SHIFT┆  Z   ┆  X   ┆  C   ┆  V   ┆  B   ┆CAPS  ┆ADJUST┆  ┆PRINT ┆INSERT┆  N   ┆  M   ┆  <   ┆  >   ┆  ?   ┆ DEL  ┆
+//  ┆ SHIFT┆  Z   ┆  X   ┆  C   ┆  V   ┆  B   ┆CAPS  ┆ADJUST┆  ┆PRINT ┆  RET ┆  N   ┆  M   ┆  <   ┆  >   ┆  ?   ┆      ┆
 //  ┆      ┆      ┆      ┆      ┆      ┆      ┆  LOCK┆      ┆  ┆SCREEN┆      ┆      ┆      ┆  ,   ┆  .   ┆  /   ┆      ┆
 //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 //                       ┆ FKEYS┆  GUI ┆ LALT ┆ CTRL ┆  SYM ┆  ┆ BSPC ┆ SHIFT┆ NAVI ┆ RALT ┆      ┆
 //                       ┆      ┆      ┆ TAB  ┆ SPACE┆      ┆  ┆      ┆  RET ┆      ┆      ┆      ┆
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
       bindings = <
-    &kp TAB        &kp Q      &kp W       &kp E        &kp R         &kp T                                                                    &kp Y       &kp U        &kp I           &kp O      &kp P         &kp BSPC
-    &mt LCTRL ESC  &kp A      &kp S       &kp D        &kp F         &kp G                                                                    &kp H       &kp J        &kp K           &kp L      &kp SEMI      &mt RCTRL RET
-    &kp LSHFT      &kp Z      &kp X       &kp C        &kp V         &kp B        &kp CLCK         &mo ADJUST       &kp PSCRN &kp INSERT      &kp N       &kp M        &kp COMMA       &kp DOT    &kp FSLH      &kp DEL
+    &kp TAB        &kp Q      &kp W       &kp E        &kp R         &kp T                                                                    &kp Y       &kp U        &kp I           &kp O      &kp P         &none
+    &mt LCTRL ESC  &kp A      &kp S       &kp D        &kp F         &kp G                                                                    &kp H       &kp J        &kp K           &kp L      &kp SEMI      &kp DEL
+    &kp LSHFT      &kp Z      &kp X       &kp C        &kp V         &kp B        &kp CLCK         &mo ADJUST       &kp PSCRN &kp RET         &kp N       &kp M        &kp COMMA       &kp DOT    &kp FSLH      &none
                                           &sl FKEYS    &kp LGUI      &mt LALT TAB &bhm LCTRL SPACE &mo SYM          &kp BSPC  &mt RSHIFT RET  &mo NAVI    &kp RALT     &none
       >;
     };
@@ -80,7 +80,7 @@
 //  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
 //  ┆      ║  1   ║  2   ║  3   ║  4   ║  5   ┆                              ┆  '   ║  -   ║  =   ║  [   ║  ]   ║  |   ┆
 //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆SCROLL┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
+//  ┆      ┆      ┆      ┆      ┆      ┆      ┆SCROLL┆      ┆  ┆INSERT┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
 //  ┆      ┆  6   ┆  7   ┆  8   ┆  9   ┆  0   ┆  LOCK┆ LALT ┆  ┆      ┆      ┆  "   ┆  _   ┆  +   ┆  {   ┆  }   ┆      ┆
 //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
@@ -88,10 +88,10 @@
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 
       bindings = <
-    &kp GRAV  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                                       &kp CARET  &kp AMPS        &kp STAR   &kp LPAR  &kp RPAR  &kp BSLH
-    &trans    &kp N1   &kp N2 &kp N3   &kp N4   &kp N5                                          &kp SQT    &kp MINUS       &kp EQUAL  &kp LBKT  &kp RBKT  &kp PIPE
-    &trans    &kp N6   &kp N7 &kp N8   &kp N9   &kp N0     &kp SLCK &kp LALT      &none  &none  &kp DQT    &kp UNDERSCORE  &kp PLUS   &kp LBRC  &kp RBRC  &trans
-                              &trans   &trans   &trans     &trans   &trans        &trans &trans &trans     &trans    &trans
+    &kp GRAV  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                                         &kp CARET  &kp AMPS        &kp STAR   &kp LPAR  &kp RPAR  &kp BSLH
+    &trans    &kp N1   &kp N2 &kp N3   &kp N4   &kp N5                                            &kp SQT    &kp MINUS       &kp EQUAL  &kp LBKT  &kp RBKT  &kp PIPE
+    &trans    &kp N6   &kp N7 &kp N8   &kp N9   &kp N0     &kp SLCK &kp LALT      &INSERT  &none  &kp DQT    &kp UNDERSCORE  &kp PLUS   &kp LBRC  &kp RBRC  &trans
+                              &trans   &trans   &trans     &trans   &trans        &trans   &trans &trans     &trans    &trans
       >;
     };
 
@@ -103,18 +103,18 @@
 //  ┆      ║ SHIFT║ CTRL ║ GUI  ║ ALT  ║      ┆                              ┆ PGDN ║  ⬅   ║  ⬇   ║  ➡   ║VOL DN║      ┆
 //  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
 //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆MPREV ┆MPAUSE┆MNEXT ┆      ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
+//  ┆      ┆      ┆      ┆BRIGHT┆BRIGHT┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆MPREV ┆MPAUSE┆MNEXT ┆      ┆      ┆
+//  ┆      ┆      ┆      ┆  DOWN┆   UP ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
 //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
 //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 
       bindings = <
-    &none  &none      &none     &none      &none       &none                                     &kp PG_UP  &kp HOME   &kp UP    &kp END    &kp C_VOL_UP  &none
-    &none  &kp LSHIFT &kp LCTRL &kp LGUI   &kp LALT    &none                                     &kp PG_DN  &kp LEFT   &kp DOWN  &kp RIGHT  &kp C_VOL_DN  &none
-    &none  &none      &none     &none      &none       &none  &none  &none         &none  &none  &none      &kp C_PREV &kp C_PP  &kp C_NEXT &none         &none
-                                &trans     &trans      &trans &trans &trans        &trans &trans &trans     &trans     &trans
+    &none  &none      &none     &none        &none        &none                                     &kp PG_UP  &kp HOME   &kp UP    &kp END    &kp C_VOL_UP  &none
+    &none  &kp LSHIFT &kp LCTRL &kp LGUI     &kp LALT     &none                                     &kp PG_DN  &kp LEFT   &kp DOWN  &kp RIGHT  &kp C_VOL_DN  &none
+    &none  &none      &none     &kp C_BRI_DN &kp C_BRI_UP &none  &none  &none         &none  &none  &none      &kp C_PREV &kp C_PP  &kp C_NEXT &none         &none
+                                &trans       &trans       &trans &trans &trans        &trans &trans &trans     &trans     &trans
       >;
     };
 
