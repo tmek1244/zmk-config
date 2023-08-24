@@ -22,6 +22,26 @@
       flavor = "balanced";
       bindings = <&kp>, <&kp>;
     };
+    lh: left_hand_positional_hold_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "LEFT_POSITIONAL_HOLD_TAP";
+      #binding-cells = <2>;
+      flavor = "tap-unless-interrupted";
+      tapping-term-ms = <100>;                        // <---[[produces hold if held longer than tapping-term-ms]]
+      quick-tap-ms = <200>;
+      bindings = <&kp>, <&kp>;
+      hold-trigger-key-positions = <8 9 10 11 12 13 14 15>;    // <---[[right-hand keys]]
+    };
+    rh: right_hand_positional_hold_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "RIGHT_POSITIONAL_HOLD_TAP";
+      #binding-cells = <2>;
+      flavor = "tap-unless-interrupted";
+      tapping-term-ms = <100>;                        // <---[[produces hold if held longer than tapping-term-ms]]
+      quick-tap-ms = <200>;
+      bindings = <&kp>, <&kp>;
+      hold-trigger-key-positions = <0 1 2 3 4 5 6 7>;    // <---[[left-hand keys]]
+    };
   };
 
   keymap {
@@ -42,10 +62,10 @@
 //                       ┆      ┆      ┆ TAB  ┆ SPACE┆      ┆  ┆      ┆  RET ┆      ┆      ┆      ┆
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
       bindings = <
-    &kp TAB        &kp Q      &kp W       &kp E        &kp R         &kp T                                                                    &kp Y       &kp U        &kp I           &kp O      &kp P         &none
-    &mt LCTRL ESC  &kp A      &kp S       &kp D        &kp F         &kp G                                                                    &kp H       &kp J        &kp K           &kp L      &kp SEMI      &kp DEL
-    &kp LSHFT      &kp Z      &kp X       &kp C        &kp V         &kp B        &kp CLCK         &mo ADJUST       &kp PSCRN &kp RET         &kp N       &kp M        &kp COMMA       &kp DOT    &kp FSLH      &none
-                                          &sl FKEYS    &kp LGUI      &mt LALT TAB &bhm LCTRL SPACE &mo SYM          &kp BSPC  &mt RSHIFT RET  &mo NAVI    &kp RALT     &none
+    &kp TAB        &kp Q          &kp W       &kp E        &kp R         &kp T                                                                    &kp Y       &kp U        &kp I           &kp O      &kp P           &none
+    &mt LCTRL ESC  &lh LSHIFT A   &lh LCTRL S &lh LGUI D   &lh LALT F    &kp G                                                                    &kp H       &rh LALT J   &rh RGUI K      &rh RCTRL  &rh RSHIFT SEMI &kp DEL
+    &kp LSHFT      &kp Z          &kp X       &kp C        &kp V         &kp B        &kp CLCK         &mo ADJUST       &kp PSCRN &kp RET         &kp N       &kp M        &kp COMMA       &kp DOT    &kp FSLH        &none
+                                              &sl FKEYS    &kp LGUI      &mt LALT TAB &bhm LCTRL SPACE &mo SYM          &kp BSPC  &mt RSHIFT RET  &mo NAVI    &kp RALT     &none
       >;
     };
 
