@@ -62,10 +62,10 @@
 //                       ┆      ┆      ┆ TAB  ┆ SPACE┆      ┆  ┆      ┆  RET ┆      ┆      ┆      ┆
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
       bindings = <
-    &kp TAB        &kp Q          &kp W       &kp E        &kp R         &kp T                                                                    &kp Y       &kp U        &kp I           &kp O      &kp P           &none
-    &mt LCTRL ESC  &lh LSHIFT A   &lh LCTRL S &lh LGUI D   &lh LALT F    &kp G                                                                    &kp H       &rh LALT J   &rh RGUI K      &rh RCTRL  &rh RSHIFT SEMI &kp DEL
-    &kp LSHFT      &kp Z          &kp X       &kp C        &kp V         &kp B        &kp CLCK         &mo ADJUST       &kp PSCRN &kp RET         &kp N       &kp M        &kp COMMA       &kp DOT    &kp FSLH        &none
-                                              &sl FKEYS    &kp LGUI      &mt LALT TAB &bhm LCTRL SPACE &mo SYM          &kp BSPC  &mt RSHIFT RET  &mo NAVI    &kp RALT     &none
+    &kp TAB        &kp Q              &kp W       &kp E        &kp R         &kp T                                                                    &kp Y       &kp U        &kp I           &kp O      &kp P         &none
+    &mt LCTRL ESC  &lh LSHIFT A   &kp S       &kp D        &kp F         &kp G                                                                    &kp H       &kp J        &kp K           &kp L      &kp SEMI      &kp DEL
+    &kp LSHFT      &kp Z              &kp X       &kp C        &kp V         &kp B        &kp CLCK         &mo ADJUST       &kp PSCRN &kp RET         &kp N       &kp M        &kp COMMA       &kp DOT    &kp FSLH      &none
+                                          &sl FKEYS    &kp LGUI      &mt LALT TAB &bhm LCTRL SPACE &mo SYM          &kp BSPC  &mt RSHIFT RET  &mo NAVI    &kp RALT     &none
       >;
     };
 
