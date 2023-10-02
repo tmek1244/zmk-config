@@ -144,7 +144,7 @@
 //  ┆      ┆  F9  ┆ F10  ┆  F11 ┆ F12  ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
 //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
 //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
-//  ┆      ║  F5  ║  F6  ║  F7  ║  F8  ║      ┆                              ┆      ║SHIFT ║ CTRL ║ ALT  ║ GUI  ║      ┆
+//  ┆      ║  F5  ║  F6  ║  F7  ║  F8  ║      ┆                              ┆      ║ ALT  ║ GUI  ║ CTRL ║SHIFT ║      ┆
 //  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
 //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
 //  ┆      ┆  F1  ┆  F2  ┆  F3  ┆  F4  ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
@@ -154,9 +154,9 @@
 //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
             bindings = <
-    &none  &kp F9  &kp F10  &kp F11  &kp F12  &none                                     &none  &none       &none      &none     &none    &none
-    &none  &kp F5  &kp F6   &kp F7   &kp F8   &none                                     &none  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp GUI  &none
-    &none  &kp F1  &kp F2   &kp F3   &kp F4   &none  &none  &none         &none  &none  &none  &none       &none      &none     &none    &none
+    &none  &kp F9  &kp F10  &kp F11  &kp F12  &none                                     &none  &none       &none      &none     &none      &none
+    &none  &kp F5  &kp F6   &kp F7   &kp F8   &none                                     &none  &kp LALT    &kp GUI    &kp LCRTL &kp LSHIFT &none
+    &none  &kp F1  &kp F2   &kp F3   &kp F4   &none  &none  &none         &none  &none  &none  &none       &none      &none     &none      &none
                             &trans   &trans   &trans &trans &trans        &trans &trans &trans &trans      &trans
       >;
     };
