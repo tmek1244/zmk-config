@@ -5,7 +5,7 @@
 
 
 #define DEFAULT 0
-#define GAME    1
+#define TEST    1
 #define SYM     2
 #define NAVI    3
 #define FKEYS   4
@@ -19,6 +19,15 @@
       #binding-cells = <2>;
       tapping-term-ms = <150>;    // <---[[moderate duration]]
       quick-tap-ms = <150>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+    hms: homerow_mods_slow {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOMEROW_MODS_SLOW";
+      #binding-cells = <2>;
+      tapping-term-ms = <250>;    // <---[[moderate duration]]
+      quick-tap-ms = <250>;
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
     };
@@ -78,28 +87,27 @@
       >;
     };
 
-    game_layer {
+    test_layer {
 //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
-//  ┆ TAB  ┆  Q   ┆  W   ┆  E   ┆  R   ┆  T   ┆                              ┆  Y   ┆  U   ┆  I   ┆  O   ┆  P   ┆ BSPC ┆
+//  ┆      ┆  Q   ┆  W   ┆  E   ┆  R   ┆  T   ┆                              ┆  Y   ┆  U   ┆  I   ┆  O   ┆  P   ┆      ┆
 //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
 //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
-//  ┆      ║  A   ║  S   ║  D   ║  F   ║  G   ┆                              ┆  H   ║  J   ║  K   ║  L   ║  :   ║ CTRL ┆
-//  ┆ ESC  ║      ║      ║      ║  _   ║      ┆                              ┆      ║  _   ║      ║      ║  ;   ║ RET  ┆
+//  ┆      ║  A   ║  S   ║  D   ║  F   ║  G   ┆                              ┆  H   ║  J   ║  K   ║  L   ║  ;   ║ DEL  ┆
+//  ┆ ESC  ║ LGUI ║ LALT ║LCTRL ║LSHIFT║      ┆                              ┆      ║RSHIFT║RCTRL ║ RALT ║ RGUI ║      ┆
 //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆ SHIFT┆  Z   ┆  X   ┆  C   ┆  V   ┆  B   ┆CAPS  ┆ADJUST┆  ┆PRINT ┆INSERT┆  N   ┆  M   ┆  <   ┆  >   ┆  ?   ┆SHIFT ┆
+//  ┆      ┆  Z   ┆  X   ┆  C   ┆  V   ┆  B   ┆CAPS  ┆ADJUST┆  ┆PRINT ┆      ┆  N   ┆  M   ┆  <   ┆  >   ┆  ?   ┆      ┆
 //  ┆      ┆      ┆      ┆      ┆      ┆      ┆  LOCK┆      ┆  ┆SCREEN┆      ┆      ┆      ┆  ,   ┆  .   ┆  /   ┆      ┆
 //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-//                       ┆ FKEYS┆  GUI ┆ LALT ┆      ┆      ┆  ┆ DEL  ┆ NAVI ┆ RALT ┆ GUI  ┆PAUSE ┆
-//                       ┆      ┆      ┆      ┆ SPACE┆ RET  ┆  ┆      ┆ BSPC ┆      ┆      ┆      ┆
+//                       ┆ FKEYS┆      ┆      ┆      ┆  SYM ┆  ┆ BSPC ┆      ┆ NAVI ┆ RALT ┆ FKEYS┆
+//                       ┆      ┆      ┆ TAB  ┆ SPACE┆      ┆  ┆      ┆  RET ┆      ┆      ┆      ┆
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
       bindings = <
-    &kp TAB        &kp Q  &kp W  &kp E      &kp R    &kp T                                                                &kp Y    &kp U    &kp I      &kp O   &kp P    &kp BSPC
-    &mt LCTRL ESC  &kp A  &kp S  &kp D      &kp F    &kp G                                                                &kp H    &kp J    &kp K      &kp L   &kp SEMI &mt RCTRL RET
-    &kp LSHFT      &kp Z  &kp X  &kp C      &kp V    &kp B     &kp CLCK  &mo ADJUST   &kp PSCRN    &kp INSERT    &kp N    &kp M    &kp COMMA  &kp DOT &kp FSLH &kp RSHIFT
-                                 &sl FKEYS  &kp LGUI &kp LALT  &kp SPACE &kp RET      &kp DEL      &lt NAVI BSPC &kp RALT &kp RGUI &kp PAUSE_BREAK
+    &none    &kp Q       &kp W       &kp E        &kp R         &kp T                                                                  &kp Y       &kp U         &kp I          &kp O       &kp P          &none
+    &kp ESC  &hms LGUI A &hms LALT S &hms LCTRL D &hms LSHIFT F &kp G                                                                  &kp H       &hms RSHIFT J &hms RCTRL K   &hms RALT L &hms RGUI SEMI &kp DEL
+    &none    &kp Z       &kp X       &kp C        &kp V         &kp B       &kp CLCK    &mo ADJUST       &kp PSCRN        &none        &kp N       &kp M         &kp COMMA      &kp DOT     &kp FSLH       &none
+                                     &sl FKEYS    &none         &kp TAB     &kp SPACE   &mo SYM          &kp BSPC         &kp RET      &mo NAVI    &kp RALT      &mo FKEYS
       >;
     };
-
 
     sym_layer {
 //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
@@ -179,7 +187,7 @@
 //  ┆  USB ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
 //  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
 //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆BT_CLR┆      ┆      ┆      ┆      ┆      ┆ GAME ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
+//  ┆BT_CLR┆      ┆      ┆      ┆      ┆      ┆ TEST ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
 //  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
 //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
@@ -189,7 +197,7 @@
       bindings = <
     &out OUT_BLE  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                                         &none  &none  &none  &none  &none  &none
     &out OUT_USB  &none        &none        &none        &none        &none                                                &none  &none  &none  &none  &none  &none
-    &bt BT_CLR    &none        &none        &none        &none        &none        &tog GAME &trans          &trans &trans &none  &none  &none  &none  &none  &none
+    &bt BT_CLR    &none        &none        &none        &none        &none        &tog TEST &trans          &trans &trans &none  &none  &none  &none  &none  &none
                                             &none        &trans       &trans       &trans    &trans          &trans &trans &trans &trans &trans
       >;
     };
