@@ -19,6 +19,7 @@
       #binding-cells = <2>;
       tapping-term-ms = <150>;    // <---[[moderate duration]]
       quick-tap-ms = <150>;
+      require-prior-idle-ms = <125>;
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
     };
@@ -93,7 +94,7 @@
 //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
 //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
 //  ┆      ║  A   ║  S   ║  D   ║  F   ║  G   ┆                              ┆  H   ║  J   ║  K   ║  L   ║  ;   ║ DEL  ┆
-//  ┆ ESC  ║ LGUI ║ LALT ║LCTRL ║LSHIFT║      ┆                              ┆      ║RSHIFT║RCTRL ║ RALT ║ RGUI ║      ┆
+//  ┆ ESC  ║ LGUI ║ LALT ║LCTRL ║      ║      ┆                              ┆      ║      ║RCTRL ║ RALT ║ RGUI ║      ┆
 //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
 //  ┆      ┆  Z   ┆  X   ┆  C   ┆  V   ┆  B   ┆CAPS  ┆ADJUST┆  ┆PRINT ┆      ┆  N   ┆  M   ┆  <   ┆  >   ┆  ?   ┆      ┆
 //  ┆      ┆      ┆      ┆      ┆      ┆      ┆  LOCK┆      ┆  ┆SCREEN┆      ┆      ┆      ┆  ,   ┆  .   ┆  /   ┆      ┆
@@ -102,10 +103,10 @@
 //                       ┆      ┆      ┆ TAB  ┆ SPACE┆      ┆  ┆      ┆  RET ┆      ┆      ┆      ┆
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
       bindings = <
-    &none    &kp Q       &kp W       &kp E        &kp R         &kp T                                                                  &kp Y       &kp U         &kp I          &kp O       &kp P          &none
-    &kp ESC  &hms LGUI A &hms LALT S &hms LCTRL D &hms LSHIFT F &kp G                                                                  &kp H       &hms RSHIFT J &hms RCTRL K   &hms RALT L &hms RGUI SEMI &kp DEL
-    &none    &kp Z       &kp X       &kp C        &kp V         &kp B       &kp CLCK    &mo ADJUST       &kp PSCRN        &none        &kp N       &kp M         &kp COMMA      &kp DOT     &kp FSLH       &none
-                                     &sl FKEYS    &none         &kp TAB     &kp SPACE   &mo SYM          &kp BSPC         &kp RET      &mo NAVI    &kp RALT      &mo FKEYS
+    &none    &kp Q       &kp W       &kp E        &kp R         &kp T                                                                    &kp Y       &kp U         &kp I          &kp O       &kp P          &none
+    &kp ESC  &hms LGUI A &hms LALT S &hms LCTRL D &kp F         &kp G                                                                    &kp H       &kp J         &hms RCTRL K   &hms RALT L &hms RGUI SEMI &kp DEL
+    &none    &kp Z       &kp X       &kp C        &kp V         &kp B       &kp CLCK    &mo ADJUST       &kp PSCRN        &none          &kp N       &kp M         &kp COMMA      &kp DOT     &kp FSLH       &none
+                                     &sl FKEYS    &none         &kp TAB     &kp SPACE   &mo SYM          &kp BSPC         &mt RSHIFT RET &mo NAVI    &kp RALT      &mo FKEYS
       >;
     };
 
