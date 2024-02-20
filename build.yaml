@@ -17,3 +17,5 @@ include:
     shield: loss_left
   - board: nice_nano_v2
     shield: loss_right
+  - board: nice_nano_v2
+    shield: settings_reset
