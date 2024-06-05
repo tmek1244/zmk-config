@@ -107,7 +107,7 @@
     &kp TAB        &kp T     &kp Q       &kp W        &kp E         &kp R                                                                              &kp Y       &kp U        &kp I           &kp O      &kp P         &none
     &mt LCTRL ESC  &kp G     &kp A       &kp S        &kp D         &kp F                                                                              &kp H       &kp J        &kp K           &kp L      &kp SEMI      &kp DEL
     &kp LSHFT      &kp Z     &kp X       &kp C        &kp V         &kp B            &kp CLCK         &mo ADJUST       &kp PSCRN        &kp RET        &kp N       &kp M        &kp COMMA       &kp DOT    &kp FSLH      &none
-                                         &sl FKEYS    &kp LGUI      &kp LALT         &hms LCTRL SPACE &mt SYM RET      &kp BSPC         &mt RSHIFT RET &mo NAVI    &kp RALT     &mo FKEYS
+                                         &sl FKEYS    &kp LGUI      &kp LALT         &hms LCTRL SPACE &lt SYM RET      &kp BSPC         &mt RSHIFT RET &mo NAVI    &kp RALT     &mo FKEYS
       >;
     };
 
