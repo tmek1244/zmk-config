@@ -1,8 +1,7 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-
 
 #define DEFAULT 0
 #define TEST    1
@@ -12,254 +11,230 @@
 #define ADJUST  5
 
 / {
-  behaviors {
-    hm: homerow_mods {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_MODS";
-      #binding-cells = <2>;
-      tapping-term-ms = <150>;    // <---[[moderate duration]]
-      quick-tap-ms = <150>;
-      require-prior-idle-ms = <125>;
-      flavor = "tap-preferred";
-      bindings = <&kp>, <&kp>;
-    };
-    hms: homerow_mods_slow {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_MODS_SLOW";
-      #binding-cells = <2>;
-      tapping-term-ms = <200>;    // <---[[moderate duration]]
-      quick-tap-ms = <200>;
-      require-prior-idle-ms = <125>;
-      flavor = "tap-preferred";
-      bindings = <&kp>, <&kp>;
-    };
-    bhm: balanced_homerow_mods {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_MODS";
-      #binding-cells = <2>;
-      tapping-term-ms = <200>;    // <---[[moderate duration]]
-      quick-tap-ms = <200>;
-      flavor = "balanced";
-      bindings = <&kp>, <&kp>;
-    };
-    lh: left_hand_positional_hold_tap {
-      compatible = "zmk,behavior-hold-tap";
-      label = "LEFT_POSITIONAL_HOLD_TAP";
-      #binding-cells = <2>;
-      flavor = "tap-unless-interrupted";
-      tapping-term-ms = <100>;                        // <---[[produces hold if held longer than tapping-term-ms]]
-      quick-tap-ms = <200>;
-      bindings = <&kp>, <&kp>;
-      hold-trigger-key-positions = <8 9 10 11 12 13 14 15>;    // <---[[right-hand keys]]
-    };
-    rh: right_hand_positional_hold_tap {
-      compatible = "zmk,behavior-hold-tap";
-      label = "RIGHT_POSITIONAL_HOLD_TAP";
-      #binding-cells = <2>;
-      flavor = "tap-unless-interrupted";
-      tapping-term-ms = <100>;                        // <---[[produces hold if held longer than tapping-term-ms]]
-      quick-tap-ms = <200>;
-      bindings = <&kp>, <&kp>;
-      hold-trigger-key-positions = <0 1 2 3 4 5 6 7>;    // <---[[left-hand keys]]
-    };
-  };
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;    // <---[[moderate duration]]
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <125>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
 
-  keymap {
-    compatible = "zmk,keymap";
+        hms: homerow_mods_slow {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_SLOW";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;    // <---[[moderate duration]]
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
 
-    default_layer {
-//  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
-//  ┆ TAB  ┆  Q   ┆  W   ┆  E   ┆  R   ┆  T   ┆                              ┆  Y   ┆  U   ┆  I   ┆  O   ┆  P   ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
-//  ┆ CTRL ║  A   ║  S   ║  D   ║  F   ║  G   ┆                              ┆  H   ║  J   ║  K   ║  L   ║  ;   ║ DEL  ┆
-//  ┆ ESC  ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║  :   ║      ┆
-//  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆ SHIFT┆  Z   ┆  X   ┆  C   ┆  V   ┆  B   ┆CAPS  ┆ADJUST┆  ┆PRINT ┆  RET ┆  N   ┆  M   ┆  <   ┆  >   ┆  ?   ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆  LOCK┆      ┆  ┆SCREEN┆      ┆      ┆      ┆  ,   ┆  .   ┆  /   ┆      ┆
-//  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-//                       ┆ FKEYS┆  GUI ┆ LALT ┆ CTRL ┆  SYM ┆  ┆ BSPC ┆ SHIFT┆ NAVI ┆ RALT ┆ FKEYS┆
-//                       ┆      ┆      ┆ TAB  ┆ SPACE┆      ┆  ┆      ┆  RET ┆      ┆      ┆      ┆
-//                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-      bindings = <
-    &kp TAB        &kp Q     &kp W       &kp E        &kp R         &kp T                                                                              &kp Y       &kp U        &kp I           &kp O      &kp P         &none
-    &mt LCTRL ESC  &kp A     &kp S       &kp D        &kp F         &kp G                                                                              &kp H       &kp J        &kp K           &kp L      &kp SEMI      &kp DEL
-    &kp LSHFT      &kp Z     &kp X       &kp C        &kp V         &kp B            &kp CLCK         &mo ADJUST       &kp PSCRN        &kp RET        &kp N       &kp M        &kp COMMA       &kp DOT    &kp FSLH      &none
-                                         &sl FKEYS    &kp LGUI      &mt LALT TAB     &hms LCTRL SPACE &mo SYM          &kp BSPC         &mt RSHIFT RET &mo NAVI    &kp RALT     &mo FKEYS
-      >;
+        bhm: balanced_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BALANCED_HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;    // <---[[moderate duration]]
+            quick-tap-ms = <200>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+
+        lh: left_hand_positional_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LEFT_POSITIONAL_HOLD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;                        // <---[[produces hold if held longer than tapping-term-ms]]
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <8 9 10 11 12 13 14 15>;    // <---[[right-hand keys]]
+        };
+
+        rh: right_hand_positional_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RIGHT_POSITIONAL_HOLD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;                        // <---[[produces hold if held longer than tapping-term-ms]]
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <0 1 2 3 4 5 6 7>;    // <---[[left-hand keys]]
+        };
     };
 
-    test_layer {
-//  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
-//  ┆ TAB  ┆  T   ┆  Q   ┆  W   ┆  E   ┆  R   ┆                              ┆  Y   ┆  U   ┆  I   ┆  O   ┆  P   ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
-//  ┆ CTRL ║  G   ║  A   ║  S   ║  D   ║  F   ┆                              ┆  H   ║  J   ║  K   ║  L   ║  ;   ║ DEL  ┆
-//  ┆ ESC  ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║  :   ║      ┆
-//  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆ SHIFT┆  Z   ┆  X   ┆  C   ┆  V   ┆  B   ┆CAPS  ┆ADJUST┆  ┆PRINT ┆  RET ┆  N   ┆  M   ┆  <   ┆  >   ┆  ?   ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆  LOCK┆      ┆  ┆SCREEN┆      ┆      ┆      ┆  ,   ┆  .   ┆  /   ┆      ┆
-//  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-//                       ┆ FKEYS┆      ┆ LALT ┆ CTRL ┆  SYM ┆  ┆ BSPC ┆ SHIFT┆ NAVI ┆ RALT ┆ FKEYS┆
-//                       ┆      ┆      ┆      ┆      ┆  RET ┆  ┆      ┆  RET ┆      ┆      ┆      ┆
-//                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-      bindings = <
-    &kp TAB        &kp T     &kp Q       &kp W        &kp E         &kp R                                                                              &kp Y       &kp U        &kp I           &kp O      &kp P         &none
-    &mt LCTRL ESC  &kp G     &kp A       &kp S        &kp D         &kp F                                                                              &kp H       &kp J        &kp K           &kp L      &kp SEMI      &kp DEL
-    &kp LSHFT      &kp Z     &kp X       &kp C        &kp V         &kp B            &kp CLCK         &mo ADJUST       &kp PSCRN        &kp RET        &kp N       &kp M        &kp COMMA       &kp DOT    &kp FSLH      &none
-                                         &sl FKEYS    &none         &kp LALT         &kp LCTRL        &lt SYM RET      &kp BSPC         &mt RSHIFT RET &mo NAVI    &kp RALT     &mo FKEYS
-      >;
-    };
+    keymap {
+        compatible = "zmk,keymap";
 
-    sym_layer {
-//  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
-//  ┆   ~  ┆  !   ┆  @   ┆  #   ┆  $   ┆  %   ┆                              ┆  ^   ┆  &   ┆  *   ┆  (   ┆  )   ┆  \   ┆
-//  ┆   `  ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
-//  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
-//  ┆      ║  1   ║  2   ║  3   ║  4   ║  5   ┆                              ┆  '   ║  -   ║  =   ║  [   ║  ]   ║  |   ┆
-//  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆SCROLL┆      ┆  ┆INSERT┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ┆      ┆  6   ┆  7   ┆  8   ┆  9   ┆  0   ┆  LOCK┆ LALT ┆  ┆      ┆      ┆  "   ┆  _   ┆  +   ┆  {   ┆  }   ┆      ┆
-//  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-//                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
-//                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
-//                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+        default_layer {
+            //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
+            //  ┆ TAB  ┆  Q   ┆  W   ┆  E   ┆  R   ┆  T   ┆                              ┆  Y   ┆  U   ┆  I   ┆  O   ┆  P   ┆      ┆
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
+            //  ┆ CTRL ║  A   ║  S   ║  D   ║  F   ║  G   ┆                              ┆  H   ║  J   ║  K   ║  L   ║  ;   ║ DEL  ┆
+            //  ┆ ESC  ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║  :   ║      ┆
+            //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
+            //  ┆ SHIFT┆  Z   ┆  X   ┆  C   ┆  V   ┆  B   ┆CAPS  ┆ADJUST┆  ┆PRINT ┆  RET ┆  N   ┆  M   ┆  <   ┆  >   ┆  ?   ┆      ┆
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆  LOCK┆      ┆  ┆SCREEN┆      ┆      ┆      ┆  ,   ┆  .   ┆  /   ┆      ┆
+            //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+            //                       ┆ FKEYS┆  GUI ┆ LALT ┆ CTRL ┆  SYM ┆  ┆ BSPC ┆ SHIFT┆ NAVI ┆ RALT ┆ FKEYS┆
+            //                       ┆      ┆      ┆ TAB  ┆ SPACE┆      ┆  ┆      ┆  RET ┆      ┆      ┆      ┆
+            //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 
-      bindings = <
-    &kp GRAV  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                                           &kp CARET  &kp AMPS        &kp STAR   &kp LPAR  &kp RPAR  &kp BSLH
-    &trans    &kp N1   &kp N2 &kp N3   &kp N4   &kp N5                                              &kp SQT    &kp MINUS       &kp EQUAL  &kp LBKT  &kp RBKT  &kp PIPE
-    &trans    &kp N6   &kp N7 &kp N8   &kp N9   &kp N0     &kp SLCK &kp LALT      &kp INSERT &none  &kp DQT    &kp UNDERSCORE  &kp PLUS   &kp LBRC  &kp RBRC  &trans
-                              &trans   &trans   &trans     &trans   &trans        &trans     &trans &trans     &trans    &trans
-      >;
-    };
-
-    navi_layer {
-//  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆ PGUP ┆ HOME ┆  ⬆   ┆ END  ┆VOL UP┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
-//  ┆      ║ SHIFT║ CTRL ║ GUI  ║ ALT  ║      ┆                              ┆ PGDN ║  ⬅   ║  ⬇   ║  ➡   ║VOL DN║      ┆
-//  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
-//  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆      ┆      ┆      ┆BRIGHT┆BRIGHT┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆MPREV ┆MPAUSE┆MNEXT ┆      ┆      ┆
-//  ┆      ┆      ┆      ┆  DOWN┆   UP ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-//                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
-//                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
-//                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-
-      bindings = <
-    &none  &none      &none     &none        &none        &none                                     &kp PG_UP  &kp HOME   &kp UP    &kp END    &kp C_VOL_UP  &none
-    &none  &kp LSHIFT &kp LCTRL &kp LGUI     &kp LALT     &none                                     &kp PG_DN  &kp LEFT   &kp DOWN  &kp RIGHT  &kp C_VOL_DN  &none
-    &none  &none      &none     &kp C_BRI_DN &kp C_BRI_UP &none  &none  &none         &none  &none  &none      &kp C_PREV &kp C_PP  &kp C_NEXT &none         &none
-                                &trans       &trans       &trans &trans &trans        &trans &trans &trans     &trans     &trans
-      >;
-    };
-
-
-    fkey_layer {
-//  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
-//  ┆      ┆  F9  ┆ F10  ┆  F11 ┆ F12  ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
-//  ┆      ║  F5  ║  F6  ║  F7  ║  F8  ║      ┆                              ┆      ║ ALT  ║ GUI  ║ CTRL ║SHIFT ║      ┆
-//  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
-//  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆      ┆  F1  ┆  F2  ┆  F3  ┆  F4  ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-//                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
-//                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
-//                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
             bindings = <
-    &none  &kp F9  &kp F10  &kp F11  &kp F12  &none                                     &none  &none       &none      &none     &none      &none
-    &none  &kp F5  &kp F6   &kp F7   &kp F8   &none                                     &none  &kp LALT    &kp GUI    &kp LCTRL &kp LSHIFT &none
-    &none  &kp F1  &kp F2   &kp F3   &kp F4   &none  &none  &none         &none  &none  &none  &none       &none      &none     &none      &none
-                            &trans   &trans   &trans &trans &trans        &trans &trans &trans &trans      &trans
-      >;
-    };
+&kp TAB        &kp Q  &kp W  &kp E        &kp R         &kp T                                                      &kp Y     &kp U         &kp I        &kp O    &kp P     &kp BACKSLASH
+&mt LCTRL ESC  &kp A  &kp S  &hm LCTRL D  &hm LSHIFT F  &kp G                                                      &kp H     &hm RSHIFT J  &hm RCTRL K  &kp L    &kp SEMI  &kp DEL
+&kp LSHFT      &kp Z  &kp X  &kp C        &kp V         &kp B         &kp CLCK   &mo ADJUST  &kp PSCRN  &kp RET    &kp N     &kp M         &kp COMMA    &kp DOT  &kp FSLH  &none
+                             &sl FKEYS    &kp LGUI      &mt LALT TAB  &kp SPACE  &mo SYM     &kp BSPC   &kp ENTER  &mo NAVI  &kp RALT      &mo FKEYS
+            >;
+        };
 
+        test_layer {
+            //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
+            //  ┆ TAB  ┆  T   ┆  Q   ┆  W   ┆  E   ┆  R   ┆                              ┆  Y   ┆  U   ┆  I   ┆  O   ┆  P   ┆      ┆
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
+            //  ┆ CTRL ║  G   ║  A   ║  S   ║  D   ║  F   ┆                              ┆  H   ║  J   ║  K   ║  L   ║  ;   ║ DEL  ┆
+            //  ┆ ESC  ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║  :   ║      ┆
+            //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
+            //  ┆ SHIFT┆  Z   ┆  X   ┆  C   ┆  V   ┆  B   ┆CAPS  ┆ADJUST┆  ┆PRINT ┆  RET ┆  N   ┆  M   ┆  <   ┆  >   ┆  ?   ┆      ┆
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆  LOCK┆      ┆  ┆SCREEN┆      ┆      ┆      ┆  ,   ┆  .   ┆  /   ┆      ┆
+            //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+            //                       ┆ FKEYS┆      ┆ LALT ┆ CTRL ┆  SYM ┆  ┆ BSPC ┆ SHIFT┆ NAVI ┆ RALT ┆ FKEYS┆
+            //                       ┆      ┆      ┆      ┆      ┆  RET ┆  ┆      ┆  RET ┆      ┆      ┆      ┆
+            //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 
-    adjust_layer {
-//  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
-//  ┆  BLE ┆  BT0 ┆  BT1 ┆  BT2 ┆  BT3 ┆  BT4 ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
-//  ┆  USB ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
-//  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
-//  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆BT_CLR┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆ TEST ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-//                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
-//                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
-//                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-
-      bindings = <
-    &out OUT_BLE  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                                            &none  &none  &none  &none  &none  &none
-    &out OUT_USB  &none        &none        &none        &none        &none                                                   &none  &none  &none  &none  &none  &none
-    &bt BT_CLR    &none        &none        &none        &none        &none        &trans    &trans          &tog TEST &trans &none  &none  &none  &none  &none  &none
-                                            &none        &trans       &trans       &trans    &trans          &trans    &trans &trans &trans &trans
-      >;
-    };
-
-
-    template_layer {
-//  ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
-//  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
-//  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
-//  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
-//  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
-//                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
-//                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
-//                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
             bindings = <
-    &none  &none  &none  &none  &none  &none                                     &none  &none  &none  &none  &none  &none
-    &none  &none  &none  &none  &none  &none                                     &none  &none  &none  &none  &none  &none
-    &none  &none  &none  &none  &none  &none  &none  &none         &none  &none  &none  &none  &none  &none  &none  &none
-                         &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans
-      >;
-    };
+&kp TAB        &kp T  &kp Q  &kp W      &kp E  &kp R                                                        &kp Y     &kp U     &kp I      &kp O    &kp P     &none
+&mt LCTRL ESC  &kp G  &kp A  &kp S      &kp D  &kp F                                                        &kp H     &kp J     &kp K      &kp L    &kp SEMI  &kp DEL
+&kp LSHFT      &kp Z  &kp X  &kp C      &kp V  &kp B     &kp CLCK   &mo ADJUST   &kp PSCRN  &kp RET         &kp N     &kp M     &kp COMMA  &kp DOT  &kp FSLH  &none
+                             &sl FKEYS  &none  &kp LALT  &kp LCTRL  &lt SYM RET  &kp BSPC   &mt RSHIFT RET  &mo NAVI  &kp RALT  &mo FKEYS
+            >;
+        };
 
-  };
+        sym_layer {
+            //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
+            //  ┆   ~  ┆  !   ┆  @   ┆  #   ┆  $   ┆  %   ┆                              ┆  ^   ┆  &   ┆  *   ┆  (   ┆  )   ┆  \   ┆
+            //  ┆   `  ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
+            //  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
+            //  ┆      ║  1   ║  2   ║  3   ║  4   ║  5   ┆                              ┆  '   ║  -   ║  =   ║  [   ║  ]   ║  |   ┆
+            //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆SCROLL┆      ┆  ┆INSERT┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ┆      ┆  6   ┆  7   ┆  8   ┆  9   ┆  0   ┆  LOCK┆ LALT ┆  ┆      ┆      ┆  "   ┆  _   ┆  +   ┆  {   ┆  }   ┆      ┆
+            //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+            //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
+            //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
+            //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+
+            bindings = <
+&kp GRAV  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                                          &kp CARET  &kp AMPS        &kp STAR   &kp LPAR  &kp RPAR  &kp BSLH
+&trans    &kp N1    &kp N2  &kp N3    &kp N4    &kp N5                                             &kp SQT    &kp MINUS       &kp EQUAL  &kp LBKT  &kp RBKT  &kp PIPE
+&trans    &kp N6    &kp N7  &kp N8    &kp N9    &kp N0     &kp SLCK  &kp LALT  &kp INSERT  &none   &kp DQT    &kp UNDERSCORE  &kp PLUS   &kp LBRC  &kp RBRC  &trans
+                            &trans    &trans    &trans     &trans    &trans    &trans      &trans  &trans     &trans          &trans
+            >;
+        };
+
+        navi_layer {
+            //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆ PGUP ┆ HOME ┆  ⬆   ┆ END  ┆VOL UP┆      ┆
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
+            //  ┆      ║ SHIFT║ CTRL ║ GUI  ║ ALT  ║      ┆                              ┆ PGDN ║  ⬅   ║  ⬇   ║  ➡   ║VOL DN║      ┆
+            //  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
+            //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
+            //  ┆      ┆      ┆      ┆BRIGHT┆BRIGHT┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆MPREV ┆MPAUSE┆MNEXT ┆      ┆      ┆
+            //  ┆      ┆      ┆      ┆  DOWN┆   UP ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+            //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
+            //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
+            //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+
+            bindings = <
+&none  &none       &none      &none         &none         &none                                   &kp PG_UP  &kp HOME    &kp UP    &kp END     &kp C_VOL_UP  &none
+&none  &kp LSHIFT  &kp LCTRL  &kp LGUI      &kp LALT      &none                                   &kp PG_DN  &kp LEFT    &kp DOWN  &kp RIGHT   &kp C_VOL_DN  &none
+&none  &none       &none      &kp C_BRI_DN  &kp C_BRI_UP  &none   &none   &none   &none   &none   &none      &kp C_PREV  &kp C_PP  &kp C_NEXT  &none         &none
+                              &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans     &trans      &trans
+            >;
+        };
+
+        fkey_layer {
+            //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
+            //  ┆      ┆  F9  ┆ F10  ┆  F11 ┆ F12  ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
+            //  ┆      ║  F5  ║  F6  ║  F7  ║  F8  ║      ┆                              ┆      ║ ALT  ║ GUI  ║ CTRL ║SHIFT ║      ┆
+            //  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
+            //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
+            //  ┆      ┆  F1  ┆  F2  ┆  F3  ┆  F4  ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+            //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
+            //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
+            //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+
+            bindings = <
+&none  &kp F9  &kp F10  &kp F11  &kp F12  &none                                   &none   &none     &none    &none      &none       &none
+&none  &kp F5  &kp F6   &kp F7   &kp F8   &none                                   &none   &kp LALT  &kp GUI  &kp LCTRL  &kp LSHIFT  &none
+&none  &kp F1  &kp F2   &kp F3   &kp F4   &none   &none   &none   &none   &none   &none   &none     &none    &none      &none       &none
+                        &trans   &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans
+            >;
+        };
+
+        adjust_layer {
+            //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
+            //  ┆  BLE ┆  BT0 ┆  BT1 ┆  BT2 ┆  BT3 ┆  BT4 ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
+            //  ┆  USB ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
+            //  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
+            //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
+            //  ┆BT_CLR┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆ TEST ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+            //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
+            //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
+            //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+
+            bindings = <
+&out OUT_BLE  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                     &none   &none   &none   &none  &none  &none
+&out OUT_USB  &none         &none         &none         &none         &none                                            &none   &none   &none   &none  &none  &none
+&bt BT_CLR    &none         &none         &none         &none         &none         &trans  &trans  &tog TEST  &trans  &none   &none   &none   &none  &none  &none
+                                          &none         &trans        &trans        &trans  &trans  &trans     &trans  &trans  &trans  &trans
+            >;
+        };
+
+        template_layer {
+            //  ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤                              ├╌╌╌╌╌╌╔══════╦══════╦══════╦══════╗╌╌╌╌╌╌┤
+            //  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
+            //  ┆      ║      ║      ║      ║      ║      ┆                              ┆      ║      ║      ║      ║      ║      ┆
+            //  ├╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┼╌╌╌╌╌╌┬╌╌╌╌╌╌┐  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┼╌╌╌╌╌╌╚══════╩══════╩══════╩══════╝╌╌╌╌╌╌┤
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆      ┆
+            //  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┆  ┆╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+            //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
+            //                       ┆      ┆      ┆      ┆      ┆      ┆  ┆      ┆      ┆      ┆      ┆      ┆
+            //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
+
+            bindings = <
+&none  &none  &none  &none   &none   &none                                   &none   &none   &none   &none  &none  &none
+&none  &none  &none  &none   &none   &none                                   &none   &none   &none   &none  &none  &none
+&none  &none  &none  &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none  &none  &none
+                     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+    };
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        combo_L_shift {
-            bindings = <&kp LEFT_SHIFT>;
-            key-positions = <16 15>;
-            layers = <0>;
-            timeout-ms = <50>;
-        };
-
-        combo_R_shift {
-            bindings = <&kp RIGHT_SHIFT>;
-            key-positions = <19 20>;
-            layers = <0>;
-            timeout-ms = <50>;
-        };
-
-        combo_L_ctrl {
-            bindings = <&kp RCTRL>;
-            key-positions = <16 14>;
-            layers = <0>;
-            timeout-ms = <50>;
-        };
-
-        combo_R_ctrl {
-            bindings = <&kp LCTRL>;
-            key-positions = <19 21>;
-            layers = <0>;
-            timeout-ms = <50>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 };
