@@ -35,6 +35,16 @@
             #binding-cells = <0>;
             bindings = <&kp V>, <&kp LC(V)>;
         };
+
+        slow_hm: slow_hm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SLOW_HM";
+            #binding-cells = <2>;
+            tapping-term-ms = <225>;
+            quick-tap-ms = <225>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     keymap {
@@ -56,10 +66,10 @@
             //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 
             bindings = <
-&kp TAB        &kp Q       &kp W           &kp E        &kp R         &kp T                                                 &kp Y     &kp U         &kp I        &kp O           &kp P               &kp BACKSLASH
-&mt LCTRL ESC  &hm LWIN A  &hm LEFT_ALT S  &hm LCTRL D  &hm LSHIFT F  &kp G                                                 &kp H     &hm RSHIFT J  &hm RCTRL K  &hm LEFT_ALT L  &hm LWIN SEMICOLON  &kp DEL
-&kp LSHFT      &kp Z       &kp X           &kp C        &kp V         &kp B    &kp CLCK   &mo ADJUST  &kp PSCRN  &kp RET    &kp N     &kp M         &kp COMMA    &kp DOT         &kp FSLH            &none
-                                           &sl FKEYS    &none         &kp TAB  &kp SPACE  &mo SYM     &kp BSPC   &kp ENTER  &mo NAVI  &kp RALT      &mo FKEYS
+&kp TAB        &kp Q            &kp W                &kp E        &kp R         &kp T                                                 &kp Y     &kp U         &kp I        &kp O                &kp P                    &kp BACKSLASH
+&mt LCTRL ESC  &slow_hm LWIN A  &slow_hm LEFT_ALT S  &hm LCTRL D  &hm LSHIFT F  &kp G                                                 &kp H     &hm RSHIFT J  &hm RCTRL K  &slow_hm LEFT_ALT L  &slow_hm LWIN SEMICOLON  &kp DEL
+&kp LSHFT      &kp Z            &kp X                &kp C        &kp V         &kp B    &kp CLCK   &mo ADJUST  &kp PSCRN  &kp RET    &kp N     &kp M         &kp COMMA    &kp DOT              &kp FSLH                 &none
+                                                     &sl FKEYS    &none         &kp TAB  &kp SPACE  &mo SYM     &kp BSPC   &kp ENTER  &mo NAVI  &kp RALT      &mo FKEYS
             >;
         };
 
