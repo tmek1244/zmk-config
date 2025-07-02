@@ -73,16 +73,16 @@
             >;
         };
 
-        letters {
+        aoe4 {
             bindings = <
-&kp TAB        &kp Q  &kp W  &kp E  &kp R     &kp T                                                 &kp Y      &kp U     &kp I      &kp O    &kp P          &kp BACKSLASH
-&mt LCTRL ESC  &kp A  &kp S  &kp D  &kp F     &kp G                                                 &kp H      &kp J     &kp K      &kp L    &kp SEMICOLON  &kp DEL
-&kp LSHFT      &kp Z  &kp X  &kp C  &kp V     &kp B      &kp CLCK  &mo 6  &kp PSCRN  &kp RET        &kp N      &kp M     &kp COMMA  &kp DOT  &kp FSLH       &kp RSHIFT
-                             &sl 5  &kp LGUI  &kp SPACE  &none     &mo 3  &none      &kp BACKSPACE  &kp ENTER  &kp RALT  &mo 5
+&kp TAB        &kp Q  &kp W  &kp E  &kp R      &kp T                                                 &tog 1  &kp U         &kp I        &kp O                &kp P                    &kp BACKSLASH
+&mt LCTRL ESC  &kp A  &kp S  &kp D  &kp F      &kp G                                                 &kp H   &hm RSHIFT J  &hm RCTRL K  &slow_hm LEFT_ALT L  &slow_hm LWIN SEMICOLON  &kp DEL
+&kp LSHFT      &kp Z  &kp X  &kp C  &kp V      &kp B       &kp CLCK      &mo 6  &tog 1    &kp RET    &kp N   &kp M         &kp COMMA    &kp DOT              &kp FSLH                 &none
+                             &sl 5  &kp COMMA  &kp PERIOD  &kp NUMBER_4  &mo 3  &kp BSPC  &kp ENTER  &mo 4   &kp RALT      &mo 5
             >;
         };
 
-        test_layer {
+        gaming {
             //  ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐                              ┌╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┬╌╌╌╌╌╌┐
             //  ┆ TAB  ┆  T   ┆  Q   ┆  W   ┆  E   ┆  R   ┆                              ┆  Y   ┆  U   ┆  I   ┆  O   ┆  P   ┆      ┆
             //  ┆      ┆      ┆      ┆      ┆      ┆      ┆                              ┆      ┆      ┆      ┆      ┆      ┆      ┆
