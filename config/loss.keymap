@@ -52,7 +52,7 @@
             #binding-cells = <0>;
             bindings = <&mo 3>, <&layer_modifier 3 LCTRL>;
 
-            tapping-term-ms = <150>;
+            tapping-term-ms = <200>;
         };
     };
 
