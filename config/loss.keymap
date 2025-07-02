@@ -66,6 +66,8 @@
                 <&macro_param_2to1 &kp MACRO_PLACEHOLDER &macro_param_1to1 &mo MACRO_PLACEHOLDER>;
 
             label = "LAYER_MODIFIER";
+            wait-ms = <0>;
+            tap-ms = <0>;
         };
     };
 
