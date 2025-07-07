@@ -92,8 +92,8 @@
             bindings = <
 &kp TAB        &kp Q            &kp W                &kp E        &kp R         &kp T                                            &kp Y  &kp U         &kp I        &kp O                &kp P                    &kp BACKSLASH
 &mt LCTRL ESC  &slow_hm LWIN A  &slow_hm LEFT_ALT S  &hm LCTRL D  &hm LSHIFT F  &kp G                                            &kp H  &hm RSHIFT J  &hm RCTRL K  &slow_hm LEFT_ALT L  &slow_hm LWIN SEMICOLON  &kp DEL
-&kp LSHFT      &kp Z            &kp X                &kp C        &kp V         &kp B    &kp CLCK   &mo 6  &kp PSCRN  &kp RET    &kp N  &kp M         &kp COMMA    &kp DOT              &kp FSLH                 &none
-                                                     &sl 5        &none         &kp TAB  &kp SPACE  &mo 3  &kp BSPC   &kp ENTER  &mo 4  &kp RALT      &mo 5
+&kp LSHFT      &kp Z            &kp X                &kp C        &kp V         &kp B    &kp CLCK   &mo 7  &kp PSCRN  &kp RET    &kp N  &kp M         &kp COMMA    &kp DOT              &kp FSLH                 &none
+                                                     &sl 6        &none         &kp TAB  &kp SPACE  &mo 4  &kp BSPC   &kp ENTER  &mo 5  &kp RALT      &mo 6
             >;
         };
 
@@ -101,8 +101,8 @@
             bindings = <
 &kp TAB        &kp Q  &kp W  &kp E  &kp R      &kp T                                                              &tog 1  &kp U         &kp I        &kp O                &kp P                    &kp BACKSLASH
 &mt LCTRL ESC  &kp A  &kp S  &kp D  &kp F      &kp G                                                              &kp H   &hm RSHIFT J  &hm RCTRL K  &slow_hm LEFT_ALT L  &slow_hm LWIN SEMICOLON  &kp DEL
-&kp LSHFT      &kp Z  &kp X  &kp C  &kp V      &kp B       &kp CLCK      &mo 6               &tog 1    &kp RET    &kp N   &kp M         &kp COMMA    &kp DOT              &kp FSLH                 &none
-                             &sl 5  &kp COMMA  &kp PERIOD  &kp NUMBER_4  &tap_dance_mod_tap  &kp BSPC  &kp ENTER  &mo 4   &kp RALT      &mo 5
+&kp LSHFT      &kp Z  &kp X  &kp C  &kp V      &kp B       &kp CLCK      &mo 7               &tog 1    &kp RET    &kp N   &kp M         &kp COMMA    &kp DOT              &kp FSLH                 &none
+                             &sl 6  &kp COMMA  &kp PERIOD  &kp NUMBER_4  &tap_dance_mod_tap  &kp BSPC  &kp ENTER  &mo 5   &kp RALT      &mo 6
             >;
         };
 
@@ -124,8 +124,8 @@
             bindings = <
 &kp TAB        &kp T  &kp Q  &kp W  &kp E     &kp R                                                    &kp Y  &kp U     &kp I      &kp O    &kp P     &none
 &mt LCTRL ESC  &kp G  &kp A  &kp S  &kp D     &kp F                                                    &kp H  &kp J     &kp K      &kp L    &kp SEMI  &kp DEL
-&kp LSHFT      &kp Z  &kp X  &kp C  &kp V     &kp B  &kp ESCAPE  &mo 6      &kp PSCRN  &kp RET         &kp N  &kp M     &kp COMMA  &kp DOT  &kp FSLH  &none
-                             &none  &kp LALT  &mo 5  &kp SPACE   &lt 3 RET  &kp BSPC   &mt RSHIFT RET  &mo 4  &kp RALT  &mo 5
+&kp LSHFT      &kp Z  &kp X  &kp C  &kp V     &kp B  &kp ESCAPE  &mo 7      &kp PSCRN  &kp RET         &kp N  &kp M     &kp COMMA  &kp DOT  &kp FSLH  &none
+                             &none  &kp LALT  &mo 6  &kp SPACE   &lt 3 RET  &kp BSPC   &mt RSHIFT RET  &mo 5  &kp RALT  &mo 6
             >;
         };
 
@@ -149,6 +149,15 @@
 &trans    &kp N1    &kp N2  &kp N3    &kp N4    &kp N5                                             &kp SQT    &kp MINUS       &kp EQUAL  &kp LBKT  &kp RBKT  &kp PIPE
 &trans    &kp N6    &kp N7  &kp N8    &kp N9    &kp N0     &kp SLCK  &kp LALT  &kp INSERT  &none   &kp DQT    &kp UNDERSCORE  &kp PLUS   &kp LBRC  &kp RBRC  &trans
                             &trans    &trans    &trans     &trans    &trans    &trans      &trans  &trans     &trans          &trans
+            >;
+        };
+
+        sym_layer_hrm {
+            bindings = <
+&kp GRAV  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                                          &kp CARET  &kp AMPS               &kp STAR         &kp LPAR            &kp RPAR            &kp BSLH
+&trans    &kp N1    &kp N2  &kp N3    &kp N4    &kp N5                                             &kp SQT    &hm RIGHT_SHIFT MINUS  &hm RCTRL EQUAL  &slow_hm LALT LBKT  &slow_hm LWIN RBKT  &kp PIPE
+&trans    &kp N6    &kp N7  &kp N8    &kp N9    &kp N0     &kp SLCK  &kp LALT  &kp INSERT  &none   &kp DQT    &kp UNDERSCORE         &kp PLUS         &kp LBRC            &kp RBRC            &trans
+                            &trans    &trans    &trans     &trans    &trans    &trans      &trans  &trans     &trans                 &trans
             >;
         };
 
