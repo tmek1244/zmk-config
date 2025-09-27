@@ -177,10 +177,10 @@
             //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 
             bindings = <
-&none  &none     &none                 &none      &none           &none                                   &kp PG_UP  &kp HOME    &kp UP    &kp END     &kp C_VOL_UP  &none
-&none  &kp LWIN  &kp LEFT_ALT          &kp LCTRL  &kp LEFT_SHIFT  &none                                   &kp PG_DN  &kp LEFT    &kp DOWN  &kp RIGHT   &kp C_VOL_DN  &none
-&none  &none     &kp C_BRIGHTNESS_DEC  &none      &kp C_BRI_UP    &none   &none   &none   &none   &none   &none      &kp C_PREV  &kp C_PP  &kp C_NEXT  &none         &none
-                                       &trans     &trans          &trans  &trans  &trans  &trans  &trans  &trans     &trans      &trans
+&none  &none     &none                 &none      &none           &none                                        &kp PG_UP  &kp HOME    &kp UP    &kp END     &kp C_VOL_UP  &none
+&none  &kp LWIN  &kp LEFT_ALT          &kp LCTRL  &kp LEFT_SHIFT  &none                                        &kp PG_DN  &kp LEFT    &kp DOWN  &kp RIGHT   &kp C_VOL_DN  &none
+&none  &none     &kp C_BRIGHTNESS_DEC  &none      &kp C_BRI_UP    &none   &none   &none   &none   &kp C_POWER  &none      &kp C_PREV  &kp C_PP  &kp C_NEXT  &none         &none
+                                       &trans     &trans          &trans  &trans  &trans  &trans  &trans       &trans     &trans      &trans
             >;
         };
 
