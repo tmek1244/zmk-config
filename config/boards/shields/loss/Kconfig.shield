@@ -3,3 +3,6 @@ config SHIELD_LOSS_LEFT
 
 config SHIELD_LOSS_RIGHT
     def_bool $(shields_list_contains,loss_right)
+
+config SHIELD_LOSS_DONGLE
+    def_bool $(shields_list_contains,loss_dongle)
