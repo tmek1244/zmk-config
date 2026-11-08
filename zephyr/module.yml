@@ -1,0 +1,4 @@
+name: loss-battery-led
+build:
+  cmake: .
+  kconfig: Kconfig

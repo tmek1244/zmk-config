@@ -15,6 +15,14 @@ config ZMK_SPLIT
 
 endif
 
+# The halves run on batteries; the dongle doesn't (its reading would be junk).
+if SHIELD_LOSS_RIGHT || SHIELD_LOSS_LEFT
+
+config LOSS_BATTERY_LED
+    default y
+
+endif
+
 if SHIELD_LOSS_DONGLE
 
 # Both halves connect to the dongle as peripherals.
