@@ -21,13 +21,12 @@ if SHIELD_LOSS_RIGHT || SHIELD_LOSS_LEFT
 config LOSS_BATTERY_LED
     default y
 
-# Power off after 30 minutes without typing (not while on USB power).
-# The first key press after that only wakes the half, it isn't typed.
+# Power off after a while without typing (not while on USB power). The
+# timeout is set in config/loss_left.conf and config/loss_right.conf, because
+# ZMK's own default would win over one set here.
+# The first key press after sleeping only wakes the half, it isn't typed.
 config ZMK_SLEEP
     default y
-
-config ZMK_IDLE_SLEEP_TIMEOUT
-    default 1800000
 
 endif
 
